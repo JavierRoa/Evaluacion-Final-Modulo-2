@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Formulario de Ingreso</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/MyStyle.css">
+        <link rel="shortcut icon" href="https://images.vexels.com/media/users/3/155414/isolated/preview/6c5e852026e7fd11f79cf45a65299016-silueta-de-vista-lateral-de-coche-suv.png">
+        <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script defer src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
+        <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/additional-methods.min.js"></script>
+        <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script defer src="js/JavaScript.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div>
+                <h1 class="text-center">Formulario "AutoLimpio"</h1>
+            </div>
+            <div>
+                <form method="post">
+                    <div class="row">
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 mt-3">                               
+                            <h3>Datos del Cliente</h3>
+                            <div>
+                                <label for="nombre">Nombre:</label>
+                                <input class="form-control" type="text" name="nombre" id="nombre" placeholder="Ingrese Nombre">
+                            </div>
+                            <div>
+                                <label for="apellido">Apellido:</label>
+                                <input class="form-control" type="text" name="apellido" id="apellido" placeholder="Ingrese Apellido">
+                            </div>
+                            <div class="row">
+                                <label for="rut">RUT:</label>
+                                <input class="form-control" type="text" name="rut" id="rut" placeholder="Ingrese RUT sin verificador"> _
+                                <input class="form-control" type="text" name="dv" id="dv" placeholder="0">
+                            </div>
+                            <div>
+                                <label for="direccion">Dirección:</label>
+                                <input class="form-control" type="text" name="direccion" id="direccion" placeholder="Ingrese su dirección">
+                            </div>
+                            <div>
+                                <label for="comuna">Comuna:</label>
+                                <select class="form-control" name="comuna" id="comuna">
+                                    <option selected>Seleccione una comuna</option>
+                                    <option value="Temuco">Temuco</option>
+                                    <option value="Padre Las Casas">Padre Las Casas</option>
+                                    <option value="Freire">Freire</option>                                  
+                                    <option value="Villarrica">Villarrica</option>
+                                    <option value="Pucón">Pucón</option>
+                                </select>
+                            </div>               
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 mt-3">
+                            <h3>Datos del Vehículo</h3>
+                            <div>
+                                <label for="tipoVehiculo">Tipo de Vehículo:</label>
+                                <select class="form-control" name="tipoVehiculo" id="tipoVehiculo">
+                                    <option selected>Seleccione el tipo de vehículo</option>
+                                    <option value="Automóvil">Automóvil</option>
+                                    <option value="Camioneta">Camioneta</option>
+                                    <option value="Camión">Camión</option>
+                                    <option value="Furgón">Furgón</option>
+                                    <option value="Moto">Moto</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="marca">Marca:</label>
+                                <input class="form-control" type="text" name="marca" id="marca" placeholder="Ingrese la marca">
+                            </div>
+                            <div>
+                                <label for="modelo">Modelo:</label>
+                                <input class="form-control" type="text" name="modelo" id="modelo" placeholder="Ingrese el modelo">
+                            </div>
+                            <div>
+                                <label for="año">Año:</label>
+                                <input class="form-control" type="text" name="año" id="año" placeholder="Ingrese el año">
+                            </div>
+                            <div>
+                                <p class="mt-3">¿Tiene el vehículo su revisión técnica al día?</p>
+                                <label for="revTec">Si</label>
+                                <input type="radio" name="revisionTec" id="revisionTec" value="yes" title="Si, tengo la revisión técnica al día">
+                                <label for="revTec2">No</label>
+                                <input type="radio" name="revisionTec" id="revisionTec" value="no" title="No, la revisión técnica está pendiente"></input>                                          
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 mt-3">
+                            <h3>Datos del Servicio</h3>
+                            <label>Servicios Requeridos:</label>
+                            <div class="form-check form-check-inline mt-1">
+                                <input class="form-check-input" type="checkbox" value="Exterior" id="lavadoExterior" name="lavado">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Lavado Exterior ($ 7.000 Neto)
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" value="Motor" id="lavadoMotor" name="lavado">
+                                <label class="form-check-label" for="flexCheckChecked">
+                                    Lavado Motor ($ 5.000 Neto)
+                                </label>
+                            </div>
+                            <div>
+                                <label for="personal">Persona a Cargo:</label>
+                                <select class="form-control" name="personal" id="personal">
+                                    <option selected>Seleccione...</option>
+                                    <option value="Fernando Mendez">Fernando Mendez</option>
+                                    <option value="Claudia Ibarra">Claudia Ibarra</option>
+                                    <option value="Jorge Gutierrez">Jorge Gutierrez</option>
+                                    <option value="Karina Riquelme">Karina Riquelme</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="fecha">Fecha Servicio:</label>
+                                <input class="form-control" type="text" name="fecha" id="fecha" placeholder="DD/MM/AA">
+                            </div>
+                            <div>
+                                <label for="hora">Hora Término Servicio:</label>
+                                <input class="form-control" type="text" name="hora" id="hora" placeholder="HH:MM">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2 mt-3 mb-3">
+                        <label for="Neto">Costo Total Neto:</label>
+                        <input class="form-control" type="text" id="costoNeto" name="costoNeto" readonly>    
+                    </div>
+                    <div class="col-sm-2 mt-3 mb-3">
+                        <label for="Total">Costo Total + IVA:</label>
+                        <input class="form-control" type="text" id="costoTotal" name="costoTotal" readonly>    
+                    </div>
+                    <div class="mt-5">
+                        <button class="btn btn-primary form-control" type="button" id="ingreso1" name="limpiar">Ingresar</button>
+                    </div>              
+                </form>
+            </div>               
+        </div>
+    </body>
+    <footer></footer>
+</html>
