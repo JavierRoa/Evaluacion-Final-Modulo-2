@@ -1,0 +1,65 @@
+body {
+    background-image: url(https://st.depositphotos.com/1203257/4886/i/950/depositphotos_48867585-stock-photo-summer-car-washing.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: white;
+}
+
+.font-border, h1, h3{
+    -webkit-text-stroke: 1.2px black;
+}
+
+/*diseño de borde a las fuentes en las etiquetas indicadas del formulario*/
+label, p{
+    color: black;
+    -webkit-text-stroke: 0.1px rgb(7, 7, 7);
+}
+::placeholder{
+    font-size: small;
+}
+#rut {
+
+    width: 60%;
+    margin-left:12px;
+    margin-right: 5px;
+}
+#dv {
+    width: 10%;
+    margin-left: 5px;
+}
+
+/* Formato del texto de la etiqueta de error */
+label.error {
+    color: red;
+    font-size: 1rem;
+    display: block;
+    margin-top: 5px;
+}
+
+/* Formato del fondo de la etiqueta de error */
+label.error.fail-alert {
+    border-radius: 4px;
+    line-height: 1;
+    padding: 2px 0 6px 6px;
+    background: #ffe6eb;
+}
+
+/* Formato de borde de campo validado correctamente */
+input.valid.success-alert {
+    border: 2px solid #4CAF50;
+    color: green;
+}
+
+/* Formato de texto y color de borde del campo que presenta error al validar */
+input.error, textarea.error {
+    border: 1px dashed red; /* Borde con linea entrecortada color rojo */
+    font-weight: 300;
+    color: red; /* Color de fuente rojo */
+}
+#costoNeto, #costoTotal{
+    text-align: right;
+}
