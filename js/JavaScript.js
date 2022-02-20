@@ -1,8 +1,6 @@
 $(document).ready(function(){
     document.formulario.costoNeto.value="$ 0.-";
     document.formulario.costoTotal.value="$ 0.-";
-    //Al cargar la página, la tabla de registros se mantiene oculta por defecto
-    $("#tablaregistros").hide();
     //Validación del formulario
     $("#formulario").validate({
         //Asignación de formatos de entrada válida y errónea
@@ -28,7 +26,7 @@ $(document).ready(function(){
             let valorCostoTotal = $("#costoTotal").val();
             // Asignación de valor de variable para el lavado exterior (SI o NO)
             let valorNeto = 0;
-            let valorLavadoExt = "";
+            let valorLavadoExt ="";
             if ($("#lavadoExterior").is(":checked")) {
                 valorLavadoExt = "SI";
                 valorNeto += 7000;
@@ -49,28 +47,6 @@ $(document).ready(function(){
             // Mensaje por pantalla
             let mensaje = `Resumen:\nNombre: ${valorNombre} ${valorApellido}\nValor Neto Servicio: $${valorNeto}\nIVA: $${impuesto}\nTotal a Pagar: $${totalPagar}`;
             if (confirm(mensaje)) {
-                // Guardado de string que representa la fila de una tabla
-                let filaTabla = "<tr><td>" +
-                valorNombre + "</td><td>" +
-                valorApellido + "</td><td>" +
-                valorRut + "-" + valorDv + "</td><td>" +
-                valorDireccion + "</td><td>" +
-                valorComuna + "</td><td>" +
-                valorTipoVehiculo + "</td><td>" +
-                valorMarca + "</td><td>" +
-                valorModelo + "</td><td>" +
-                valorAño + "</td><td>" +
-                valorRT + "</td><td>" +
-                valorLavadoExt + "</td><td>" +
-                valorLavadoMot + "</td><td>" +
-                valorTrabajador + "</td><td>" +
-                valorFecha + "</td><td>" +
-                valorHora + "</td><td>" +
-                valorNeto + "</td><td>" +
-                impuesto + "</td><td>" +
-                totalPagar + "</td></tr>";
-                //Adición de la fila a la tabla
-                $("#cuerpoTabla").append(filaTabla); 
                 //Reseteo de los campos del formulario
                 form.reset();
             }
@@ -94,6 +70,7 @@ $(document).ready(function(){
                 //Obligatorio, 8 dígitos
                 required: true,
                 pattern: "[0-9]{1,8}",
+                minlength:7,
                 maxlength:8,
             },
             /*digito verificador 0-9 ademas de letras k K*/
@@ -140,7 +117,7 @@ $(document).ready(function(){
                 minlength: 4,
                 maxlength: 4,
             },
-            revTec: {
+            revisionTec: {
                 //Obligatorio
                 required: true,
             },
@@ -180,12 +157,13 @@ $(document).ready(function(){
             rut: {
                 required: "Este campo es obligatorio",
                 pattern: "Formato de RUT incorrecto",
-                maxlength: "Rut no valido",
+                minlength: "Rut no válido",
+                maxlength: "Rut no válido",
             },
             dv:{
-                required: "este campo es obligatorio",
-                pattern: "no es un verificador valido",
-                minlength: "este campo debe contener 1 digito",
+                required: "Este campo es obligatorio",
+                pattern: "No es un verificador válido",
+                minlength: "Wste campo debe contener 1 dígito",
             },
             direccion: {
                 required: "Este campo es obligatorio",
@@ -237,30 +215,6 @@ $(document).ready(function(){
                 required: "Este campo es obligatorio",
             }
         },
-        //Si el error ocurre en un campo de tipo checkbox, el mensaje se despliega en una ubicación especial
-        errorPlacement: function(error, element) {
-            if (element.attr("name") == "lavado[]") {
-                error.appendTo("#errorEspecial");
-            } else {
-                error.insertAfter(element);
-            }
-        }
-    });
-
-    $("#ingreso2").click(function(){
-        //Al hacer click en el botón con ID "borrar", se elimina el último elemento <tr> (table row)
-        //Del cuerpo de la tabla, que tiene ID "cuerpoTabla"
-        $('#cuerpoTabla tr:last').remove();
-    });
-
-    $("#ingreso1").click(function(){
-        //Ejecuta el comportamiento usual del formulario para su evento "reset": limpiar todos los campos
-        $("#formulario").trigger("reset");
-    });
-
-    $("#ingreso3").click(function(){
-        //Oculta o muestra la tabla de registros
-        $("#tablaregistros").toggle();
     });
 });
 function costo(){
@@ -283,4 +237,4 @@ function costo(){
             }
         }
     }
-};
+}
