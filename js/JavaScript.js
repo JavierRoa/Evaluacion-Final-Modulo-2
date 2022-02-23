@@ -121,10 +121,9 @@ $(document).ready(function(){
                 //Obligatorio
                 required: true,
             },
-            'lavado[]': {
+            lavado: {
                 //Obligatorio, mínimo 1 opción seleccionada (checkboxes para elegir tipo de lavado)
                 required: true,
-                minlength: 1,
             },
             personal: {
                 //Obligatorio
@@ -141,7 +140,7 @@ $(document).ready(function(){
             }
         },
         messages: {
-            //Definición de mensajes de error personalizados, dependiendo de los requisitos anteriroes
+            //Definición de mensajes de error personalizados, dependiendo de los requisitos previamente establecidos
             nombre: {
                 required: "Este campo es obligatorio",
                 pattern: "El campo solo puede contener letras",
@@ -200,9 +199,8 @@ $(document).ready(function(){
             revisionTec: {
                 required: "Este campo es obligatorio",
             },
-            'lavado[]': {
-                required: "Este campo es obligatorio",
-                minlength: "Debe seleccionar al menos una opción",
+            lavado: {
+                required: "Debe seleccionar al menos una opción",
             },
             personal: {
                 required: "Este campo es obligatorio",
@@ -219,22 +217,22 @@ $(document).ready(function(){
 });
 function costo(){
 
-    if ($("#lavadoExterior").is(":checked") === $("#lavadoMotor").is(":checked") ) {
+    if ($("#lavadoExterior").is(":checked") && $("#lavadoMotor").is(":checked") ) {
         document.formulario.costoNeto.value="$ 12.000.-"
+        document.formulario.costoTotal.value="$ 14.280.-"
     }
-    else {
-        if($("#lavadoExterior").is(":checked")){
-            document.formulario.costoNeto.value="$ 7.000.-"
-        }
-        else{
-            if($("#lavadoMotor").is(":checked")){
-                document.formulario.costoNeto.value="$ 5.000.-"
-            }
-            else{ 
-                if($("#lavadoExterior").is(":unchecked") === ($("#lavadoMotor")).is(":unchecked")){
-                    document.formulario.costoNeto.value="$ 0.-"
-                }
-            }
-        }
+    else if 
+        ($("#lavadoExterior").is(":checked")){
+        document.formulario.costoNeto.value="$ 7.000.-"
+        document.formulario.costoTotal.value="$ 8.330.-"
+    }
+    else if
+        ($("#lavadoMotor").is(":checked")){
+        document.formulario.costoNeto.value="$ 5.000.-"
+        document.formulario.costoTotal.value="$ 5.950.-"
+    }
+    else{ 
+        document.formulario.costoNeto.value="$ 0.-"
+        document.formulario.costoTotal.value="$ 0.-"
     }
 }

@@ -51,14 +51,14 @@ label.error.fail-alert {
 }
 
 /* Formato de borde de campo validado correctamente */
-input.valid.success-alert {
+input.valid.success-alert, select.valid.success-alert {
     border: 2px solid #4CAF50;
     color: green;
 }
 
 /* Formato de texto y color de borde del campo que presenta error al validar */
-input.error, textarea.error {
-    border: 1px dashed red; /* Borde con linea entrecortada color rojo */
+input.error, textarea.error, select.error {
+    border: 1px solid red; /* Borde con linea entrecortada color rojo */
     font-weight: 300;
     color: red; /* Color de fuente rojo */
 }
